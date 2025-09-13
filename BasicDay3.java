@@ -23,10 +23,7 @@ public class BasicDay3 {
 
         System.out.println("Sort employees by age, then by name");
         employees.stream().sorted(Comparator.comparing(Employee::getAge).thenComparing(Employee::getName)).forEach(System.out::println);
-
-        System.out.println("Get top 3 highest paid employees");
-        employees.stream().s
-
     }
 }
+
 
