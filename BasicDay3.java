@@ -20,7 +20,7 @@ public class BasicDay3 {
 
         System.out.println("Sort employees by name desc");
         employees.stream().sorted(Comparator.comparing(Employee::getAge).reversed()).forEach(System.out::println);
-
+ 
         System.out.println("Sort employees by age, then by name");
         employees.stream().sorted(Comparator.comparing(Employee::getAge).thenComparing(Employee::getName)).forEach(System.out::println);
 
@@ -49,4 +49,5 @@ public class BasicDay3 {
         System.out.println(idName);
     }
 }
+
 
