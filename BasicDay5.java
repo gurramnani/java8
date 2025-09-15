@@ -52,9 +52,10 @@ public class BasicDay5 {
 
         System.out.println("Find department with maximum employees");
         String maxDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting()))
-                        .entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse("NO dept");
+                        .entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse("No dept");
         System.out.println("Dept with max employees: " + maxDept);
 
 
     }
 }
+
