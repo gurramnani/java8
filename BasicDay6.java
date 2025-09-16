@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class BasicDay6 {
     public static void main(String[] args) {
-        
         List<Employee> employees = Arrays.asList(
                 new Employee(1, "Alice", "IT", "Female", 60000, LocalDate.of(2021, 5, 10), 28, "Bangalore", "alice@gmail.com", true),
                 new Employee(2, "Bob", "HR", "Male", 35000, LocalDate.of(2019, 3, 14), 35, "Delhi", "bob@yahoo.com", true),
@@ -51,3 +50,4 @@ public class BasicDay6 {
     }
 
 }
+
