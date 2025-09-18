@@ -59,7 +59,7 @@ public class BasicDay9 {
         Employee maxSalaryEmployee = employees.stream().reduce((e1,e2)->e1.getSalary()>e2.getSalary()?e1:e2).orElse(null);
         System.out.println(maxSalaryEmployee);
 
-
     }
 }
+
 
