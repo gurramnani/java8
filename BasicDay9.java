@@ -8,7 +8,9 @@ import java.util.Optional;
 
 public class BasicDay9 {
     public static void main(String[] args) {
+        
         //Advanced Concepts: Flatmap, parallel Stream, Optional, reduce
+        
         List<Employee> employees = Arrays.asList(
                 new Employee(1, "Alice", "IT", "Female", 60000, LocalDate.of(2021, 5, 10), 28, "Bangalore", "alice@gmail.com", true),
                 new Employee(2, "Bob", "HR", "Male", 35000, LocalDate.of(2019, 3, 14), 35, "Delhi", "bob@yahoo.com", true),
@@ -60,3 +62,4 @@ public class BasicDay9 {
 
     }
 }
+
