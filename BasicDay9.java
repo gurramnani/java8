@@ -1,0 +1,62 @@
+package com.demo.model.java8;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
+public class BasicDay9 {
+    public static void main(String[] args) {
+        //Advanced Concepts: Flatmap, parallel Stream, Optional, reduce
+        List<Employee> employees = Arrays.asList(
+                new Employee(1, "Alice", "IT", "Female", 60000, LocalDate.of(2021, 5, 10), 28, "Bangalore", "alice@gmail.com", true),
+                new Employee(2, "Bob", "HR", "Male", 35000, LocalDate.of(2019, 3, 14), 35, "Delhi", "bob@yahoo.com", true),
+                new Employee(3, "Charlie", "Finance", "Male", 75000, LocalDate.of(2022, 7, 1), 42, "Mumbai", "charlie@gmail.com", false),
+                new Employee(4, "Diana", "IT", "Female", 28000, LocalDate.of(2018, 11, 30), 25, "Hyderabad", "diana@gmail.com", true),
+                new Employee(5, "Eve", "Admin", "Female", 50000, LocalDate.of(2020, 1, 5), 30, "Chennai", "eve@gmail.com", false)
+        );
+
+        System.out.println("Get employee email safely where id is 2");
+        String employeeEmail = employees.stream().filter(e->e.getId()==2).map(Employee::getEmail).findFirst().orElse("not_found@gmail.com");
+        System.out.println(employeeEmail);
+
+        System.out.println("Find employee by name, return Optional");
+        Optional<Employee> employeeOptional = employees.stream().filter(e->e.getName().equals("Alice")).findFirst();
+        System.out.println(employeeOptional);
+
+        System.out.println("Check if any employee from Hyderabad exists");
+        boolean employeeFromHyderabad = employees.stream().anyMatch(e->e.getCity().equalsIgnoreCase("Hyderabad"));
+        System.out.println(employeeFromHyderabad);
+
+        System.out.println("Get max salary employee using Optional");
+        Optional<Employee> maxSalary = employees.stream().max(Comparator.comparingDouble(Employee::getSalary));
+        System.out.println(maxSalary.orElse(null));
+
+        System.out.println("Chain Optional map() ::  Get uppercase email of employee with id=1");
+        String upperCaseEmail = employees.stream().filter(e->e.getId()==1).findFirst().map(Employee::getEmail).map(String::toUpperCase).orElse("NOT_FOUND");
+        System.out.println(upperCaseEmail);
+
+        System.out.println("Total salary");
+        double totalSalary = employees.stream().mapToDouble(Employee::getSalary).reduce(0.0,(a,b)->a+b); //reduce(0.0,Double::sum)
+        System.out.println(totalSalary);
+
+        System.out.println("Longest employee name");
+        String longestEmployeeName = employees.stream().map(Employee::getName).reduce((l1,l2)->l1.length()>l2.length()?l1:l2).orElse("No_Employee_Is_Prsenet");
+        System.out.println(longestEmployeeName);
+
+        System.out.println("Find employee with earliest joining date");
+        Employee earliestJoiningDate = employees.stream().reduce((employee1,employee2)-> employee1.getJoiningDate().isBefore(employee2.getJoiningDate())?employee1:employee2).orElse(null);
+        System.out.println(earliestJoiningDate);
+
+        System.out.println("Multiply all employee ages");
+        long productAge = employees.stream().map(Employee::getAge).reduce(1,(a,b)->a*b);
+        System.out.println(productAge);
+
+        System.out.println("Find employee with max salary");
+        Employee maxSalaryEmployee = employees.stream().reduce((e1,e2)->e1.getSalary()>e2.getSalary()?e1:e2).orElse(null);
+        System.out.println(maxSalaryEmployee);
+
+
+    }
+}
