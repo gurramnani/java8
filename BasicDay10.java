@@ -12,6 +12,7 @@ public class BasicDay10 {
                 new Staff("Bob Smith", "bob@mail.com", Arrays.asList("BankingApp", "Insurance"), 75000, "IT", false),
                 new Staff("Charlie Brown", "charlie@mail.com", Arrays.asList("Healthcare", "Ecommerce"), 50000, "HR", true)
         );
+        
         System.out.println("Flatten staff projects");
         Set<String> flattenProjects = staffList.stream().flatMap(e->e.getProjects().stream()).collect(Collectors.toSet());
         System.out.println(flattenProjects);
@@ -29,3 +30,4 @@ public class BasicDay10 {
         System.out.println(chars);
     }
 }
+
