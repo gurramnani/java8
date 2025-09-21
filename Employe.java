@@ -32,3 +32,4 @@ class Staff {
         return name + " (" + department + ", " + salary + ")";
     }
 }
+
