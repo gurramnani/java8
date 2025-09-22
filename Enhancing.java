@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class Enhancing {
     public static void main(String[] args) {
+        
         List<Staff> staffList = Arrays.asList(
                 new Staff("Alice Johnson", "alice@mail.com", Arrays.asList("BankingApp", "Ecommerce"), 60000, "Finance", true),
                 new Staff("Bob Smith", "bob@mail.com", Arrays.asList("BankingApp", "Insurance"), 75000, "IT", false),
@@ -35,3 +36,4 @@ public class Enhancing {
         System.out.println(count);
     }
 }
+
