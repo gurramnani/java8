@@ -13,6 +13,7 @@ public class EnhanceOne {
                 new Staff("Bob Smith", "bob@mail.com", Arrays.asList("BankingApp", "Insurance"), 75000, "IT", false),
                 new Staff("Charlie Brown", "charlie@mail.com", Arrays.asList("Healthcare", "Ecommerce"), 50000, "HR", true)
         );
+        
         System.out.println("Partition staff into two groups: salary > 50,000 and ≤ 50,000. (partitioningBy)");
         Map<Boolean,List<Staff>> partitionStaff = staffList.stream().collect(Collectors.partitioningBy(e->e.getSalary() >50000));
         partitionStaff.forEach((k,v)-> System.out.println(k+":"+v));
@@ -40,3 +41,4 @@ public class EnhanceOne {
         System.out.println(highestSalaryByDepartment);
     }
 }
+
