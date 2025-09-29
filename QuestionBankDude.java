@@ -2,7 +2,8 @@ package com.demo.exam;
 
 public class QuestionBankDude {
     /*
-    Find the names of all staff whose salary is greater than 60,000. (filter + map)
+    
+Find the names of all staff whose salary is greater than 60,000. (filter + map)
 
 Get the total number of staff in the "Finance" department. (filter + count)
 
@@ -43,3 +44,4 @@ Create a map of staffId → staffName. (toMap)
 Find department-wise highest salary staff. (groupingBy + maxBy)
      */
 }
+
