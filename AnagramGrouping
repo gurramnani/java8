@@ -1,4 +1,5 @@
 Anagram Grouping
+
 List<String> words = Arrays.asList("eat", "tea", "tan", "ate", "nat", "bat");
 
 Map<String, List<String>> grouped = words.stream()
