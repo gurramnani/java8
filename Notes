@@ -1,0 +1,94 @@
+Real Backend Example (Parallel API Calls)
+This is a very realistic microservice scenario.
+
+Suppose a backend API needs:
+User details
+Order history
+Payment information
+
+Instead of calling them sequentially, we call them in parallel.
+
+Sequential API Calls (Slow)
+Get User API → 200ms
+Get Orders API → 300ms
+Get Payments API → 250ms
+
+Total time:
+
+200 + 300 + 250 = 750ms
+Parallel API Calls Using CompletableFuture
+All APIs run simultaneously
+
+Total time ≈
+
+Max(200,300,250) = 300ms
+Huge performance improvement 🚀
+
+Example Code
+CompletableFuture<String> userFuture =
+        CompletableFuture.supplyAsync(() -> getUser());
+
+CompletableFuture<String> ordersFuture =
+        CompletableFuture.supplyAsync(() -> getOrders());
+
+CompletableFuture<String> paymentFuture =
+        CompletableFuture.supplyAsync(() -> getPayments());
+
+CompletableFuture<Void> all =
+        CompletableFuture.allOf(userFuture, ordersFuture, paymentFuture);
+
+all.join();
+
+System.out.println(userFuture.join());
+System.out.println(ordersFuture.join());
+System.out.println(paymentFuture.join());
+Simulated API Methods
+public static String getUser() {
+    sleep(200);
+    return "User Data";
+}
+
+public static String getOrders() {
+    sleep(300);
+    return "Orders Data";
+}
+
+public static String getPayments() {
+    sleep(250);
+    return "Payment Data";
+}
+Execution Flow
+Main Thread
+     │
+     ├── ForkJoin Worker 1 → User API
+     ├── ForkJoin Worker 2 → Orders API
+     └── ForkJoin Worker 3 → Payment API
+
+All run in parallel.
+
+allOf() vs anyOf()
+
+allOf(): Waits for all futures to complete.
+CompletableFuture.allOf(f1,f2,f3)
+
+anyOf(): Returns when first future completes.
+
+Example:
+fetch from fastest server
+Why Companies Use CompletableFuture
+In backend systems for:
+Parallel API calls
+Microservices aggregation
+Async database calls
+File processing
+Background tasks
+Frameworks using it:
+Spring Boot
+Reactive APIs
+WebFlux
+Async controllers
+
+Interview Question Example
+
+How do you call multiple APIs in parallel in Java?
+We can use CompletableFuture.supplyAsync to execute API calls asynchronously and combine them using CompletableFuture.allOf to wait for all results.
