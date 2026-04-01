@@ -1,0 +1,20 @@
+Difference between:
+map vs flatMap
+
+map is used to transom elements like complete employee object to Employee name r slaary
+where as flatmap will flatten the strings arrays r list<list<integers to list<integers
+2️⃣5️⃣ Difference between:
+groupingBy vs partitioningBy
+groupingby is used to group the large set of data to according to the
+ grouping logic like dep, whare partition has boolean true and false according to the logic will will divide the the values r things
+2️⃣6️⃣ Why primitive streams are faster?
+bcz there is no boxing and unboxing overhead in primitive streams
+2️⃣7️⃣ Why reduce fails in parallel stream sometimes?
+parallel stream will split te work into multiple subgroups so after completeing the work it will join the result
+so it will not give the proper output order
+2️⃣8️⃣ Difference between:
+Period vs Duration
+period is used to measure the days between two dates.. years and months where as duration is used to measure the time difference between two times
+2️⃣9️⃣ Difference between:
+reduce() vs collect()
+reduce is used to get all the elemnts into one thing whrer as collect is used to get all the elemts to one place
